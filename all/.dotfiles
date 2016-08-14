@@ -4,7 +4,7 @@ export LANG=ja_JP.UTF-8
 export EDITOR=vim
 
 # PATH
-for i in sbin bin .rbenv/bin
+for i in sbin bin opt/bin .rbenv/bin
 do
   USERPATH=$USERPATH:$HOME/$i
 done
