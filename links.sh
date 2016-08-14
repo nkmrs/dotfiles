@@ -14,6 +14,7 @@ main() {
 
   relinks $ROOT/all
   relinks $ROOT/$ARCH
+  relinks $ROOT/cache
 
   cp $ROOT/.gitconfig.local $HOME/
 
@@ -23,7 +24,7 @@ main() {
 
 relinks() {
   echo "making relinks from $1"
-  find $1 -type f | while read f
+  find $1 -mindepth 1 -maxdepth 1 | while read f
   do
     name=$(basename $f)
     echo " ln -s $f"
