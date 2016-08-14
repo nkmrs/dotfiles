@@ -1,0 +1,24 @@
+# shortcut
+alias l=ls
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -la'
+alias c=clear
+alias cls=clear
+alias h=history
+alias vi=vim
+alias mv='mv -i'
+alias zmv='noglob zmv -W'
+
+# tools
+alias zen='nkf -X'
+alias han='nkf -Z4'
+
+# git
+alias st='git status $*'
+alias add='git add $*'
+alias commit='git commit -m $*'
+alias push='git push origin master'
+alias giff='git diff $*'
+alias lg='git lg $*'
+alias pull='git pull --rebase'

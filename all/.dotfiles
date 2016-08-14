@@ -1,0 +1,19 @@
+#!/bin/sh
+
+export LANG=ja_JP.UTF-8
+export EDITOR=vim
+
+# PATH
+for i in sbin bin .rbenv/bin
+do
+  USERPATH=$USERPATH:$HOME/$i
+done
+PATH=$USERPATH:$PATH
+
+# alias
+. ~/.aliases
+
+# ***env
+if /usr/bin/which rbenv > /dev/null ; then
+  eval "$(rbenv init -)"
+fi
