@@ -1,5 +1,5 @@
 #!/bin/sh
 
-eval "$(ls -1 ~/.aliases.* | xargs -I% echo . %)"
+eval "$(\ls -1 ~/.aliases.* | xargs -I% echo . %)"
 
 alias reload="source $0"

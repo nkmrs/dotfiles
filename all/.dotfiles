@@ -14,6 +14,6 @@ PATH=$USERPATH:$PATH
 . ~/.aliases
 
 # ***env
-if /usr/bin/which rbenv > /dev/null ; then
+if /usr/bin/which rbenv > /dev/null 2>&1 ; then
   eval "$(rbenv init -)"
 fi
