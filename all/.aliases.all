@@ -22,3 +22,8 @@ alias push='git push origin master'
 alias giff='git diff $*'
 alias lg='git lg $*'
 alias pull='git pull --rebase'
+
+# docker
+alias dk='docker'
+alias dockers='docker ps'
+alias docker-ip='docker ps -q | xargs docker inspect -f "{{.Name}} {{.NetworkSettings.IPAddress }}"'
