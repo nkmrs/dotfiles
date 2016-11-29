@@ -22,6 +22,8 @@ alias push='git push origin master'
 alias giff='git diff $*'
 alias lg='git lg $*'
 alias pull='git pull --rebase'
+alias reb='git rebase $*'
+alias bra='git branch $*'
 
 # docker
 alias dk='docker'
