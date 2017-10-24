@@ -9,6 +9,7 @@ alias h=history
 alias vi=vim
 alias mv='mv -i'
 alias zmv='noglob zmv -W'
+alias fzf='fzf --reverse'
 
 # tools
 alias zen='nkf -X'
