@@ -4,7 +4,7 @@ if [ "`whoami`" = "root" ] ; then
 else
     p_color=yellow
 fi
-PROMPT=$'%B%F{${p_color}}%n@%M%f%b %3F%~%f %1v\n%# '
+PROMPT=$'%B%F{${p_color}}%n@%M%f%b %3F%~%f %1v\n$ '
 
 # my environment
 source ~/.dotfiles
