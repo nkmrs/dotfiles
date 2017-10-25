@@ -35,5 +35,5 @@ alias docker-ip='docker ps -q | xargs docker inspect -f "{{.Name}} {{.NetworkSet
 
 # todoist
 if /usr/bin/which todoist > /dev/null 2>&1 ; then
-    alias add-url="todoist a -P $(todoist projects | grep '#URL$' | awk '$0=$1')"
+    alias add-url="todoist a -L $(todoist labels | grep '@URL$' | awk '$0=$1')"
 fi
