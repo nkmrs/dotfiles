@@ -9,16 +9,37 @@ alias h=history
 alias vi=vim
 alias mv='mv -i'
 alias zmv='noglob zmv -W'
+alias fzf='fzf --reverse'
 
 # tools
 alias zen='nkf -X'
 alias han='nkf -Z4'
 
 # git
-alias st='git status $*'
-alias add='git add $*'
+alias st='git status'
+alias add='git add'
 alias commit='git commit -m $*'
 alias push='git push origin master'
-alias giff='git diff $*'
-alias lg='git lg $*'
+alias giff='git diff'
+alias lg='git lg -n 10'
 alias pull='git pull --rebase'
+alias reb='git rebase'
+alias bra='git branch'
+alias gra='git graph'
+alias feature-push='git push origin HEAD'
+git_interdiff() {
+    interdiff <(git diff $1 $2) <(git diff $3 $4)
+}
+
+# docker
+alias dk='docker'
+alias dockers='docker ps'
+alias docker-ip='docker ps -q | xargs docker inspect -f "{{.Name}} {{.NetworkSettings.IPAddress }}"'
+
+# todoist
+if /usr/bin/which todoist > /dev/null 2>&1 ; then
+    alias todo=todoist
+    alias todo-url="todoist a -L $(todoist labels | grep '@URL$' | awk '$0=$1')"
+    alias todo-neta="todoist a"
+    alias todo-grep="todoist l | grep"
+fi

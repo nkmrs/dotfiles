@@ -1,5 +1,3 @@
 [Include]
     path = ~/.gitconfig.local
-[alias]
-	st = status
-	lg = log --oneline --decorate=full
+    path = ~/.gitaliases

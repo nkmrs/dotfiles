@@ -16,7 +16,7 @@ main() {
   relinks $ROOT/$ARCH
   relinks $ROOT/cache
 
-  cp $ROOT/.gitconfig.local $HOME/
+  cp $ROOT/.gitconfig.local.sample $HOME/
 
   echo
   echo Making links SUCCESS
@@ -35,6 +35,7 @@ relinks() {
 
 setARCH() {
   [ -e /etc/debian_version ] && ARCH=linux
+  [ "`uname`" == "Darwin" ] && ARCH=mac
 }
 
 main

@@ -9,9 +9,11 @@ setopt prompt_subst
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 autoload -Uz zmv
+echo zshrc
 
 # key bind
 bindkey -e
+
 #入力途中の履歴補完
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -47,8 +49,23 @@ if [ "`whoami`" = "root" ] ; then
 else
     p_color=yellow
 fi
-PROMPT=$'%B%F{${p_color}}%n@%M%f%b %3F%~%f %1v\n%# '
+PROMPT=$'%B%F{${p_color}}%n@%M%f%b %3F%~%f %1v\n$ '
+
+# peco
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+
+# alias
+. ~/.aliases
+
+# ***env
+if /usr/bin/which rbenv > /dev/null 2>&1 ; then
+  eval "$(rbenv init -)"
+fi
 
 # my environment
-source ~/.dotfiles
-
+[ -e ~/.zshrc.local ] && source ~/.zshrc.local
