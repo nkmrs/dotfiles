@@ -19,7 +19,7 @@ set backupdir=~/.vim/tmp
 " syntax color
 " -----------------------
 syntax on
-colorscheme desert
+colorscheme evening
 
 autocmd BufNewFile,BufRead *.erls set filetype=erlang
 autocmd BufNewFile,BufRead *.cbls set filetype=cobol

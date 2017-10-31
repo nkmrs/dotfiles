@@ -9,7 +9,6 @@ setopt prompt_subst
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 autoload -Uz zmv
-echo zshrc
 
 # key bind
 bindkey -e
@@ -59,13 +58,18 @@ function peco-history-selection() {
 }
 zle -N peco-history-selection
 
-# alias
-. ~/.aliases
+# conoha
+if [ -r ~/.conoha.conf ] ; then
+    . ~/.conoha.conf
+fi
 
-# ***env
+# rbenv
 if /usr/bin/which rbenv > /dev/null 2>&1 ; then
   eval "$(rbenv init -)"
 fi
+
+# alias
+. ~/.aliases
 
 # my environment
 [ -e ~/.zshrc.local ] && source ~/.zshrc.local
