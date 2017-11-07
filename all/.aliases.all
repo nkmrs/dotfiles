@@ -20,7 +20,7 @@ alias st='git status'
 alias add='git add'
 alias commit='git commit -m $*'
 alias push='git push origin master'
-alias giff='git diff'
+alias giff='git diff -b'
 alias lg='git lg -n 10'
 alias pull='git pull --rebase'
 alias reb='git rebase'
@@ -39,7 +39,8 @@ alias docker-ip='docker ps -q | xargs docker inspect -f "{{.Name}} {{.NetworkSet
 # todoist
 if /usr/bin/which todoist > /dev/null 2>&1 ; then
     alias todo=todoist
-    alias todo-url="todoist a -L $(todoist labels | grep '@URL$' | awk '$0=$1')"
-    alias todo-neta="todoist a"
+    alias todo-url="todoist a -d today -L $(todoist labels | grep '@URL$' | awk '$0=$1')"
+    alias todo-neta="todoist a -d today"
     alias todo-grep="todoist l | grep"
+    alias todo-today="todoist l --filter today"
 fi
