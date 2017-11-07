@@ -9,7 +9,6 @@ setopt prompt_subst
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 autoload -Uz zmv
-echo zshrc
 
 # key bind
 bindkey -e

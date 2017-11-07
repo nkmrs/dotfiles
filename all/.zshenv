@@ -14,5 +14,3 @@ PATH=$USERPATH:$PATH
 
 # my environment
 [ -e ~/.zshenv.local ] && source ~/.zshenv.local
-
-echo zshenv
