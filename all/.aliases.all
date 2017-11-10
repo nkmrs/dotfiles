@@ -27,9 +27,10 @@ alias reb='git rebase'
 alias bra='git branch'
 alias gra='git graph'
 alias feature-push='git push origin HEAD'
-git_interdiff() {
+_git_interdiff() {
     interdiff <(git diff $1 $2) <(git diff $3 $4) | colordiff
 }
+alias git-interdiff='_git_interdiff'
 
 # docker
 alias dk='docker'
