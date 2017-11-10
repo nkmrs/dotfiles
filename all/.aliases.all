@@ -28,7 +28,7 @@ alias bra='git branch'
 alias gra='git graph'
 alias feature-push='git push origin HEAD'
 git_interdiff() {
-    interdiff <(git diff $1 $2) <(git diff $3 $4)
+    interdiff <(git diff $1 $2) <(git diff $3 $4) | colordiff
 }
 
 # docker
