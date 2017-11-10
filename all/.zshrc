@@ -57,6 +57,7 @@ function peco-history-selection() {
     zle reset-prompt
 }
 zle -N peco-history-selection
+bindkey '^R' peco-history-selection
 
 # alias
 . ~/.aliases
