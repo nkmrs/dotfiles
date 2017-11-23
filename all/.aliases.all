@@ -20,7 +20,7 @@ alias st='git status'
 alias add='git add'
 alias commit='git commit -m $*'
 alias push='git push origin master'
-alias giff='git diff'
+alias giff='git diff -b'
 alias lg='git lg -n 10'
 alias pull='git pull --rebase'
 alias amend='git commit --amend'
@@ -28,9 +28,10 @@ alias reb='git rebase'
 alias bra='git branch'
 alias gra='git graph'
 alias feature-push='git push origin HEAD'
-git_interdiff() {
-    interdiff <(git diff $1 $2) <(git diff $3 $4)
+_git_interdiff() {
+    interdiff <(git diff $1 $2) <(git diff $3 $4) | colordiff
 }
+alias git-interdiff='_git_interdiff'
 
 # docker
 alias dk='docker'
@@ -40,7 +41,8 @@ alias docker-ip='docker ps -q | xargs docker inspect -f "{{.Name}} {{.NetworkSet
 # todoist
 if /usr/bin/which todoist > /dev/null 2>&1 ; then
     alias todo=todoist
-    alias todo-url="todoist a -L $(todoist labels | grep '@URL$' | awk '$0=$1')"
-    alias todo-neta="todoist a"
+    alias todo-url="todoist a -d today -L $(todoist labels | grep '@URL$' | awk '$0=$1')"
+    alias todo-neta="todoist a -d today"
     alias todo-grep="todoist l | grep"
+    alias todo-today="todoist l --filter today"
 fi
