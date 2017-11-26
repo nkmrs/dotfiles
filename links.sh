@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-set -eu
+set -u
 
 ROOT=$(cd $(dirname $0) && pwd)
 
@@ -12,11 +12,11 @@ main() {
   echo "ARCH = $ARCH"
   echo
 
-  relinks $ROOT/all
-  relinks $ROOT/$ARCH
-  relinks $ROOT/cache
+  relinks $ROOT/all .
+  relinks $ROOT/$ARCH .
 
-  cp $ROOT/.gitconfig.local.sample $HOME/
+  cp $ROOT/sample.gitconfig $HOME/.gitconfig
+  cp $ROOT/sample.gitconfig.local $HOME/.gitconfig.local
 
   echo
   echo Making links SUCCESS
@@ -27,15 +27,20 @@ relinks() {
   find $1 -mindepth 1 -maxdepth 1 | while read f
   do
     name=$(basename $f)
+    if [ $2 = . ] ; then
+        dest=$PWD/$name
+    else
+        dest=$PWD/$2/$name
+    fi  
     echo " ln -s $f"
-    [ -e $name ] && unlink $name
-    ln -s $f
+    [ -h $dest ] && unlink $dest
+    ln -s $f $dest
   done
 }
 
 setARCH() {
   [ -e /etc/debian_version ] && ARCH=linux
-  [ "`uname`" == "Darwin" ] && ARCH=mac
+  [ "`uname`" = "Darwin" ] && ARCH=mac
 }
 
 main

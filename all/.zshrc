@@ -1,3 +1,4 @@
+# zsh
 autoload -U compinit
 compinit 
 autoload -Uz colors
@@ -75,3 +76,4 @@ fi
 
 # my environment
 [ -e ~/.zshrc.local ] && source ~/.zshrc.local
+
