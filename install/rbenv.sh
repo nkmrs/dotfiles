@@ -14,7 +14,7 @@ fi
 if ! /usr/bin/which rbenv > /dev/null ; then
   PATH=$DIR/bin:$PATH
   eval "$(rbenv init -)"
-  rbenv install -v 2.2.2
+  rbenv install -v 2.4.1
   rbenv rehash
-  rbenv global 2.2.2
+  rbenv global 2.4.1
 fi
