@@ -42,7 +42,11 @@ alias docker-ip='docker ps -q | xargs docker inspect -f "{{.Name}} {{.NetworkSet
 if /usr/bin/which todoist > /dev/null 2>&1 ; then
     alias todo=todoist
     alias todo-url="todoist a -d today -L $(todoist labels | grep '@URL$' | awk '$0=$1')"
-    alias todo-neta="todoist a -d today"
+    alias todo-inbox="todoist a -d today"
+    alias todo-x11="todoist a -d today -P $(todoist projects | grep '#dockerX11$' | awk '$0=$1')"
+    alias todo-x11-url="todoist a -d today -P $(todoist projects | grep '#dockerX11$' | awk '$0=$1') -L $(todoist labels | grep '@URL$' | awk '$0=$1')"
+    alias todo-kaihatu="todoist a -d today -P $(todoist projects | grep '#趣味開発$' | awk '$0=$1')"
+    alias todo-kaihatu-url="todoist a -d today -P $(todoist projects | grep '#趣味開発$' | awk '$0=$1') -L $(todoist labels | grep '@URL$' | awk '$0=$1')"
     alias todo-grep="todoist l | grep"
     alias todo-today="todoist l --filter today"
 fi
