@@ -29,6 +29,16 @@ setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data 
 setopt histignorespace
 setopt hist_no_store
+zshaddhistory() {
+    local line=${1%%$'\n'} #コマンドライン全体から改行を除去したもの
+    local cmd=${line%% *}  # １つ目のコマンド
+    # 以下の条件をすべて満たすものだけをヒストリに追加する
+    [[ ${#line} -ge 5
+        && ${cmd} != (l|l[sal])
+        && ${cmd} != (m|man)
+        && ${cmd} != (c|cd)
+    ]] && [[ ${cmd} != (todo|todo-*) ]]
+}
 
 # git setting
 zstyle ':vcs_info:git:*' check-for-changes true
